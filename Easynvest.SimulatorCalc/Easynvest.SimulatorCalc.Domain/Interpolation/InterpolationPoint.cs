@@ -2,12 +2,12 @@
 {
     public class InterpolationPoint
     {
-        public double BusinessDays { get; }
-        public double InterestRate { get; }
-        public InterpolationPoint(double businessDays, double interestRate)
+        public int BusinessDays { get; }
+        public double Rate { get; }
+        public InterpolationPoint(int businessDays, double rate)
         {
             BusinessDays = businessDays;
-            InterestRate = interestRate;
+            Rate = rate;
         }
     }
 }

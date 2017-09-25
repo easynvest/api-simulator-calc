@@ -5,6 +5,6 @@ namespace Easynvest.SimulatorCalc.Domain.Contracts
 {
     public interface ICalendarRepository
     {
-        CalendarDaysCountResult GetCountByRange(DateTime from, DateTime until);
+        CalendarDaysCountResult GetCountByRange(DateTime until);
     }
 }

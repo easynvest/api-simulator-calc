@@ -1,17 +1,18 @@
 ﻿using System;
 using Easynvest.Simulator.Domain;
+using Easynvest.SimulatorCalc.Domain.Contracts;
 
 namespace Easynvest.SimulatorCalc.Domain.Interpolation
 {
-    public class InterpolationCalculator
+    public class InterpolationCalculator : IInterpolationCalculator
     {
         public double CalculateExponential(InterpolationSet set)
         {
             ValidateSet(set);
 
             return CalculateExponential(
-                    set.PreviousPoint.BusinessDays, set.PreviousPoint.InterestRate,
-                    set.NextPoint.BusinessDays, set.NextPoint.InterestRate,
+                    set.PreviousPoint.BusinessDays, set.PreviousPoint.Rate,
+                    set.NextPoint.BusinessDays, set.NextPoint.Rate,
                     set.TargetMaturityDays
                 );
         }

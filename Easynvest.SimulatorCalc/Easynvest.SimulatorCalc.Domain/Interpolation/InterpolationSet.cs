@@ -6,11 +6,11 @@
 
         public InterpolationPoint NextPoint { get; private set; }
 
-        public double TargetMaturityDays { get; private set; }
+        public int TargetMaturityDays { get; private set; }
 
-        public InterpolationSet(double previousBusinessDays, double previousInterestRate,
-            double nextBusinessDays, double nextInterestRate,
-            double targetMaturityDays)
+        public InterpolationSet(int previousBusinessDays, double previousInterestRate,
+            int nextBusinessDays, double nextInterestRate,
+            int targetMaturityDays)
         {
             var previousPoint = new InterpolationPoint(previousBusinessDays, previousInterestRate);
             var nextPoint = new InterpolationPoint(nextBusinessDays, nextInterestRate);
@@ -18,12 +18,12 @@
             Initialize(previousPoint, nextPoint, targetMaturityDays);
         }
 
-        public InterpolationSet(InterpolationPoint previousPoint, InterpolationPoint nextPoint, double targetMaturityDays)
+        public InterpolationSet(InterpolationPoint previousPoint, InterpolationPoint nextPoint, int targetMaturityDays)
         {
             Initialize(previousPoint, nextPoint, targetMaturityDays);
         }
 
-        private void Initialize(InterpolationPoint previousPoint, InterpolationPoint nextPoint, double targetMaturityDays)
+        private void Initialize(InterpolationPoint previousPoint, InterpolationPoint nextPoint, int targetMaturityDays)
         {
             PreviousPoint = previousPoint;
             NextPoint = nextPoint;

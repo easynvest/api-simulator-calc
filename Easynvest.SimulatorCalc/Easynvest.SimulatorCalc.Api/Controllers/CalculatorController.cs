@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Easynvest.SimulatorCalc.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class CalculatorController : Controller
     {
         private readonly IMediator _mediator;
@@ -17,6 +17,7 @@ namespace Easynvest.SimulatorCalc.Api.Controllers
         }
 
         [HttpGet]
+        [Route("simulate")]
         public async Task<IActionResult> Get(SimulateInvestmentCommand command)
         {
             if (command == null)

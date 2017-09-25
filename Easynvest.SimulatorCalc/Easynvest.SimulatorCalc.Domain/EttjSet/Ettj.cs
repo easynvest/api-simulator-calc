@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Easynvest.SimulatorCalc.Domain.Ettj
+namespace Easynvest.SimulatorCalc.Domain.EttjSet
 {
     public class Ettj
     {

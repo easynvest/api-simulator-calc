@@ -1,10 +1,11 @@
 ﻿using System;
 using Easynvest.Simulator.Domain;
 using Easynvest.SimulatorCalc.Domain.Tax;
+using Easynvest.SimulatorCalc.Domain.Contracts;
 
 namespace Easynvest.SimulatorCalc.Domain.Investment
 {
-    public class InvestmentSimulator
+    public class InvestmentSimulator : IInvestmentSimulator
     {
         public InvestmentResult Simulate(InvestmentParameter parameter)
         {

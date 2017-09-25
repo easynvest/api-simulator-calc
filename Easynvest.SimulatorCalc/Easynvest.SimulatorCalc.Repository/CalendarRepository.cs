@@ -6,9 +6,9 @@ namespace Easynvest.SimulatorCalc.Repository
 {
     public class CalendarRepository : ICalendarRepository
     {
-        public CalendarDaysCountResult GetCountByRange(DateTime from, DateTime until)
+        public CalendarDaysCountResult GetCountByRange(DateTime until)
         {
-            throw new NotImplementedException();
+            return new CalendarDaysCountResult() { BusinessDays = 252, TotalDays = 365 };
         }
     }
 }
