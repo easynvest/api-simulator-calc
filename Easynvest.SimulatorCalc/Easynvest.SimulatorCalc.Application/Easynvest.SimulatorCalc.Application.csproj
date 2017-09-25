@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Easynvest.SimulatorCalc.Domain\Easynvest.SimulatorCalc.Domain.csproj" />
+    <ProjectReference Include="..\Easynvest.SimulatorCalc.Repository\Easynvest.SimulatorCalc.Repository.csproj" />
   </ItemGroup>
 
 </Project>

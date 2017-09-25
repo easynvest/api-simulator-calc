@@ -1,9 +1,11 @@
-﻿using Easynvest.SimulatorCalc.Application.Commands;
+﻿using Easynvest.SimulatorCalc.Application.Handlers;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Easynvest.SimulatorCalc.Api
 {
@@ -18,7 +20,8 @@ namespace Easynvest.SimulatorCalc.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMediatR(typeof(SimulateInvestmentCommand));
+            var handlersAssembly = typeof(SimulateInvestmentHandler).GetTypeInfo().Assembly;
+            services.AddMediatR(handlersAssembly);
             services.AddMvc();
         }
 
@@ -30,6 +33,10 @@ namespace Easynvest.SimulatorCalc.Api
             }
 
             app.UseMvc();
+            app.Run(async context =>
+            {
+                await context.Response.WriteAsync("Calculator is online");
+            });
         }
     }
 }
