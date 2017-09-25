@@ -1,6 +1,7 @@
 ﻿using System;
+using Easynvest.Simulator.Domain;
 
-namespace Easynvest.Simulator.Domain.Interpolation
+namespace Easynvest.SimulatorCalc.Domain.Interpolation
 {
     public class InterpolationCalculator
     {

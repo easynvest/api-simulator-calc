@@ -1,6 +1,7 @@
 ﻿using System;
+using Easynvest.Simulator.Domain;
 
-namespace Easynvest.Simulator.Domain.Investment
+namespace Easynvest.SimulatorCalc.Domain.Investment
 {
     public class InvestmentResult
     {

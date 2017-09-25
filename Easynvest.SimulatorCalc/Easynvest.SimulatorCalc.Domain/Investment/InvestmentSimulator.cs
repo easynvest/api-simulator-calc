@@ -1,7 +1,8 @@
-﻿using Easynvest.SimulatorCalc.Domain.Tax;
-using System;
+﻿using System;
+using Easynvest.Simulator.Domain;
+using Easynvest.SimulatorCalc.Domain.Tax;
 
-namespace Easynvest.Simulator.Domain.Investment
+namespace Easynvest.SimulatorCalc.Domain.Investment
 {
     public class InvestmentSimulator
     {

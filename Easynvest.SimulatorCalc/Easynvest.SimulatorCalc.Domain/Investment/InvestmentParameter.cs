@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Easynvest.Simulator.Domain.Investment
+﻿namespace Easynvest.SimulatorCalc.Domain.Investment
 {
     public class InvestmentParameter
     {

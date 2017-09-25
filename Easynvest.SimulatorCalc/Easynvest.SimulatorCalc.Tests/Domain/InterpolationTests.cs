@@ -1,9 +1,9 @@
-﻿using Easynvest.Simulator.Domain.Interpolation;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Easynvest.SimulatorCalc.Domain.Interpolation;
+using NUnit.Framework;
 
-namespace Easynvest.Simulator.Tests.Domain
+namespace Easynvest.SimulatorCalc.Tests.Domain
 {
     [TestFixture]
     public class InterpolationTests

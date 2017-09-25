@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easynvest.SimulatorCalc.Domain", "Easynvest.SimulatorCalc.Domain\Easynvest.SimulatorCalc.Domain.csproj", "{8C01EEB1-D245-4AEA-B89B-DBC860811453}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easynvest.SimulatorCalc.Domain", "Easynvest.SimulatorCalc.Domain\Easynvest.SimulatorCalc.Domain.csproj", "{8C01EEB1-D245-4AEA-B89B-DBC860811453}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easynvest.SimulatorCalc.Tests", "Easynvest.SimulatorCalc.Tests\Easynvest.SimulatorCalc.Tests.csproj", "{69C7E1FB-9070-48E5-AC74-D69CA6004C27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easynvest.SimulatorCalc.Tests", "Easynvest.SimulatorCalc.Tests\Easynvest.SimulatorCalc.Tests.csproj", "{69C7E1FB-9070-48E5-AC74-D69CA6004C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easynvest.SimulatorCalc.Repository", "Easynvest.SimulatorCalc.Repository\Easynvest.SimulatorCalc.Repository.csproj", "{B510BE19-6AC9-4D8F-9849-FD40B913209D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easynvest.SimulatorCalc.Application", "Easynvest.SimulatorCalc.Application\Easynvest.SimulatorCalc.Application.csproj", "{D6B03898-E9E9-4030-AFB7-B5CD4A928211}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easynvest.SimulatorCalc.Api", "Easynvest.SimulatorCalc.Api\Easynvest.SimulatorCalc.Api.csproj", "{BB710CF1-CC7F-45AE-B6C4-056FD7BDB5FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{69C7E1FB-9070-48E5-AC74-D69CA6004C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69C7E1FB-9070-48E5-AC74-D69CA6004C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69C7E1FB-9070-48E5-AC74-D69CA6004C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B510BE19-6AC9-4D8F-9849-FD40B913209D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B510BE19-6AC9-4D8F-9849-FD40B913209D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B510BE19-6AC9-4D8F-9849-FD40B913209D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B510BE19-6AC9-4D8F-9849-FD40B913209D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6B03898-E9E9-4030-AFB7-B5CD4A928211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6B03898-E9E9-4030-AFB7-B5CD4A928211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6B03898-E9E9-4030-AFB7-B5CD4A928211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6B03898-E9E9-4030-AFB7-B5CD4A928211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB710CF1-CC7F-45AE-B6C4-056FD7BDB5FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB710CF1-CC7F-45AE-B6C4-056FD7BDB5FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB710CF1-CC7F-45AE-B6C4-056FD7BDB5FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB710CF1-CC7F-45AE-B6C4-056FD7BDB5FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
