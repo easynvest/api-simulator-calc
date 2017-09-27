@@ -20,17 +20,29 @@ namespace Easynvest.SimulatorCalc.Domain.Investment
         public decimal NetAmount { get { return GrossAmount - TaxesAmount; } }
         public decimal GrossAmountProfit { get { return CalculateAmountProfit(GrossAmount); } }
         public decimal NetAmountProfit { get { return CalculateAmountProfit(NetAmount); } }
-        public decimal GrossRateProfit { get { return CalculateRateProfit(GrossAmountProfit); } }
-        public decimal NetRateProfit { get { return CalculateRateProfit(NetAmountProfit); } }
+        public decimal AnnualGrossRateProfit { get { return CalculateAnnualRateProfit(GrossAmountProfit); } }
+        public decimal AnnualNetRateProfit { get { return CalculateAnnualRateProfit(NetAmountProfit); } }
+        public decimal MonthlyGrossRateProfit { get { return CalculateMonthlyRateProfit(AnnualGrossRateProfit); } }
 
         private decimal CalculateAmountProfit(decimal finalAmount)
         {
             return finalAmount - InvestmentParameter.InvestedAmount;
         }
 
-        private decimal CalculateRateProfit(decimal finalAmount)
+        private decimal CalculateAnnualRateProfit(decimal finalAmount)
         {
             return Math.Round(finalAmount / InvestmentParameter.InvestedAmount * 100, DomainConstants.DEFAULT_ROUND);
+        }
+
+        private decimal CalculateMonthlyRateProfit(decimal annualRateProfit)
+        {
+            const double monthlyPeriod = (double)1 / 12;
+            return (decimal)ConvertRate((double) annualRateProfit, monthlyPeriod);
+        }
+
+        private double ConvertRate(double annualRate, double period)
+        {
+            return Math.Round(Math.Pow(annualRate / 100, period), DomainConstants.DEFAULT_ROUND);
         }
     }
 }
