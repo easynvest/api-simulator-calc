@@ -8,7 +8,7 @@ namespace Easynvest.SimulatorCalc.Repository
     {
         public CalendarDaysCountResult GetCountByRange(DateTime until)
         {
-            return new CalendarDaysCountResult() { BusinessDays = 252, TotalDays = 365 };
+            return new CalendarDaysCountResult() { BusinessDays = 252, TotalDays = 365, ToDate = DateTime.Now.AddYears(1) };
         }
     }
 }

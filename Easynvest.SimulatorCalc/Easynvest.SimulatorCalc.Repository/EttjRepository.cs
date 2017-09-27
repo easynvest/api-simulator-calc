@@ -20,12 +20,12 @@ namespace Easynvest.SimulatorCalc.Repository
                             new Rate()
                             {
                                 BusinessDays = 252,
-                                RateValue = 3.17
+                                RateValue = 11
                             },
                             new Rate()
                             {
                                 BusinessDays = 378,
-                                RateValue = 3.15
+                                RateValue = 12
                             }
                         }
                     }
