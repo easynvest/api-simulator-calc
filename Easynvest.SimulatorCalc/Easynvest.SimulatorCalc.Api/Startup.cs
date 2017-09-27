@@ -11,14 +11,20 @@ using System.Reflection;
 using System;
 using Easynvest.SimulatorCalc.Domain.Interpolation;
 using Easynvest.SimulatorCalc.Domain.Investment;
+using Easynvest.SimulatorCalc.Domain;
 
 namespace Easynvest.SimulatorCalc.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -28,6 +34,7 @@ namespace Easynvest.SimulatorCalc.Api
             var handlersAssembly = typeof(SimulateInvestmentHandler).GetTypeInfo().Assembly;
             services.AddMediatR(handlersAssembly);
             services.AddMvc();
+            services.Configure<MyConfig>(Configuration.GetSection("MyConfig"));
 
             ConfigureIoC(services);
         }
