@@ -52,7 +52,7 @@ namespace Easynvest.SimulatorCalc.Application.Handlers
 
         private InterpolationSet TransformEttjToInterpolationSet(Ettj ettj, int targetMaturityDays)
         {
-            var rates = ettj.DataSet.First().Rates.OrderBy(x => x.BusinessDays).ToList();
+            var rates = ettj.Rates.OrderBy(x => x.BusinessDays).ToList();
             var firstRate = rates[0];
             var secondRate = rates[1];
 
