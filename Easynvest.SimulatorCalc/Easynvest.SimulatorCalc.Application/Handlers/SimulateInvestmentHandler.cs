@@ -34,25 +34,29 @@ namespace Easynvest.SimulatorCalc.Application.Handlers
             var ettj = _ettjRepository.GetEttjByType(command.Index, calendarCount.BusinessDays);
 
             var projectedRate = GetProjectedRate(ettj, calendarCount.BusinessDays);
-
             var investmentParameter = new InvestmentParameter(
-                                        command.InvestedAmount, projectedRate, 
-                                        calendarCount.TotalDays, calendarCount.BusinessDays,
+                                        command.InvestedAmount, projectedRate,
+                                        calendarCount,
                                         command.Rate, command.IsTaxFree);
-            var investmentResult = _investmentSimulator.Simulate(investmentParameter);
-
-            return investmentResult;
+            return _investmentSimulator.Simulate(investmentParameter);
         }
 
         private double GetProjectedRate(Ettj ettj, int businessDays)
         {
+            if (ettj.DataSet.Count() == 1) return ettj.DataSet.First().Rates.First().RateValue;
+
             var interpolationSet = TransformEttjToInterpolationSet(ettj, businessDays);
             return _interpolationCalculator.CalculateExponential(interpolationSet);
         }
 
         private InterpolationSet TransformEttjToInterpolationSet(Ettj ettj, int targetMaturityDays)
         {
+<<<<<<< HEAD
             var rates = ettj.Rates.OrderBy(x => x.BusinessDays).ToList();
+=======
+            var rates = ettj.DataSet.First().Rates.OrderBy(x => x.BusinessDays).ToList();
+
+>>>>>>> 85f393e640d9aec726e17403a53369c3b552b37a
             var firstRate = rates[0];
             var secondRate = rates[1];
 

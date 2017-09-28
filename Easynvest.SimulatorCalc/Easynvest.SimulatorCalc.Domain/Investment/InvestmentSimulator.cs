@@ -31,7 +31,7 @@ namespace Easynvest.SimulatorCalc.Domain.Investment
         private decimal CalculateGrossAmount(InvestmentParameter parameter)
         {
             var dailyInterestRate = Math.Pow(1 + parameter.YearlyInterestRate / 100, 1.0f / DomainConstants.BUSINESS_DAYS_PER_YEAR) - 1;
-            var dailyInterestRateWithFactor = dailyInterestRate * parameter.RateFactor / 100;
+            var dailyInterestRateWithFactor = dailyInterestRate * parameter.Rate / 100;
             var periodInterestRate = Math.Pow(1 + dailyInterestRateWithFactor, parameter.MaturityBusinessDays);
             return parameter.InvestedAmount * (decimal)periodInterestRate; 
         }

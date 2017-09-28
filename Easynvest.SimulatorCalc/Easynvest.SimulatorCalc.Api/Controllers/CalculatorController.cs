@@ -1,6 +1,9 @@
 ﻿using Easynvest.SimulatorCalc.Application.Commands;
+using Easynvest.SimulatorCalc.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 
 
