@@ -16,31 +16,8 @@ namespace Easynvest.SimulatorCalc.Repository
 
             return new Ettj
             {
-<<<<<<< HEAD
                 Index = type,
                 Rates = rates,
-=======
-                DataSet = new List<DataSet>()
-                {
-                    new DataSet()
-                    {
-                        Index = "PRE",
-                        Rates = new List<Rate>()
-                        {
-                            new Rate()
-                            {
-                                BusinessDays = 252,
-                                RateValue = 11
-                            },
-                            new Rate()
-                            {
-                                BusinessDays = 378,
-                                RateValue = 12
-                            }
-                        }
-                    }
-                }
->>>>>>> 85f393e640d9aec726e17403a53369c3b552b37a
             };
         }
 
