@@ -1,12 +1,10 @@
 ﻿using Easynvest.SimulatorCalc.Application.Commands;
 using Easynvest.SimulatorCalc.Domain.Contracts;
+using Easynvest.SimulatorCalc.Domain.EttjSet;
 using Easynvest.SimulatorCalc.Domain.Interpolation;
 using Easynvest.SimulatorCalc.Domain.Investment;
 using MediatR;
 using System.Linq;
-using System.Threading.Tasks;
-using Easynvest.SimulatorCalc.Domain.EttjSet;
-using System;
 
 namespace Easynvest.SimulatorCalc.Application.Handlers
 {
@@ -19,7 +17,7 @@ namespace Easynvest.SimulatorCalc.Application.Handlers
 
 
         public SimulateInvestmentHandler(
-            ICalendarRepository calendarRepository, IEttjRepository ettjRepository, 
+            ICalendarRepository calendarRepository, IEttjRepository ettjRepository,
             IInterpolationCalculator interpolationCalculator, IInvestmentSimulator investmentSimulator)
         {
             _calendarRepository = calendarRepository;
@@ -43,7 +41,7 @@ namespace Easynvest.SimulatorCalc.Application.Handlers
 
         private double GetProjectedRate(Ettj ettj, int businessDays)
         {
-            if (ettj.DataSet.Count() == 1) return ettj.DataSet.First().Rates.First().RateValue;
+            if (ettj.Rates.Count() == 1) return ettj.Rates.First().RateValue;
 
             var interpolationSet = TransformEttjToInterpolationSet(ettj, businessDays);
             return _interpolationCalculator.CalculateExponential(interpolationSet);

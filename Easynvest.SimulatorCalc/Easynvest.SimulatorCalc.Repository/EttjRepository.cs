@@ -1,5 +1,7 @@
-﻿using Easynvest.SimulatorCalc.Domain.Contracts;
+﻿using Easynvest.SimulatorCalc.Domain;
+using Easynvest.SimulatorCalc.Domain.Contracts;
 using Easynvest.SimulatorCalc.Domain.EttjSet;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -10,6 +12,13 @@ namespace Easynvest.SimulatorCalc.Repository
 {
     public class EttjRepository : IEttjRepository
     {
+        private readonly IOptions<MyConfig> _config;
+
+        public EttjRepository(IOptions<MyConfig> config)
+        {
+            _config = config;
+        }
+
         public Ettj GetEttjByType(string type, int businessDays)
         {
             var rates = ProcessRepositories(type, businessDays).Result;
@@ -21,7 +30,7 @@ namespace Easynvest.SimulatorCalc.Repository
             };
         }
 
-        private static async Task<IEnumerable<Rate>> ProcessRepositories(string type, int businessDays)
+        private async Task<IEnumerable<Rate>> ProcessRepositories(string type, int businessDays)
         {
             IEnumerable<Rate> ratesResult = new List<Rate>();
             var client = new HttpClient();
@@ -32,7 +41,9 @@ namespace Easynvest.SimulatorCalc.Repository
 
             try
             {
-                var result = client.GetStringAsync(new Uri(string.Format("https://easynvest-ettj-api.herokuapp.com/{0}/{1}", type, businessDays)));
+                var uriString = $"{_config.Value.EttjAPI}/{type}/{businessDays}";
+
+                var result = client.GetStringAsync(new Uri($"{_config.Value.EttjAPI}/{type}/{businessDays}"));
                 var msg = await result;
                 ratesResult = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<Rate>>(msg);
             }
