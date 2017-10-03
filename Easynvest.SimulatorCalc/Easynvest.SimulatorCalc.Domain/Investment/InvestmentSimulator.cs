@@ -11,10 +11,12 @@ namespace Easynvest.SimulatorCalc.Domain.Investment
         {
             var taxRate = GetTaxRate(parameter);
             var grossAmount = CalculateGrossAmount(parameter);
-            var profit = grossAmount - parameter.InvestedAmount;
-            var taxesAmount = CalculateTaxAmount(profit, taxRate);
+            var investmentResult = new InvestmentResult(parameter, grossAmount, taxRate)
+            {
+                DailyGrossRateProfit = (decimal)CalculateDailyRate(parameter)
+            };
 
-            return new InvestmentResult(parameter, grossAmount, taxesAmount);
+            return investmentResult;
         }
 
         private decimal GetTaxRate(InvestmentParameter parameter)
@@ -30,15 +32,31 @@ namespace Easynvest.SimulatorCalc.Domain.Investment
 
         private decimal CalculateGrossAmount(InvestmentParameter parameter)
         {
-            var dailyInterestRate = Math.Pow(1 + parameter.YearlyInterestRate / 100, 1.0f / DomainConstants.BUSINESS_DAYS_PER_YEAR) - 1;
-            var dailyInterestRateWithFactor = dailyInterestRate * parameter.Rate / 100;
-            var periodInterestRate = Math.Pow(1 + dailyInterestRateWithFactor, parameter.MaturityBusinessDays);
+            var dailyInterestRate = CalculateDailyRate(parameter);
+            var periodInterestRate = Math.Pow(1 + dailyInterestRate, parameter.MaturityBusinessDays);
             return parameter.InvestedAmount * (decimal)periodInterestRate; 
         }
 
-        private decimal CalculateTaxAmount(decimal profit, decimal taxRate)
+        private double CalculateDailyRate(InvestmentParameter parameter)
         {
-            return profit * taxRate / 100;
+            return CalculatePeriod(parameter, DomainConstants.BUSINESS_DAYS_PER_YEAR);
+        }
+
+        private double CalculateMonthlyRate(InvestmentParameter parameter)
+        {
+            const int MONTHS_IN_YEAR = 12;
+            return CalculatePeriod(parameter, MONTHS_IN_YEAR);
+        }
+
+        private double CalculateAnnualyRate(InvestmentParameter parameter)
+        {
+            return CalculatePeriod(parameter, 1);
+        }
+
+        private double CalculatePeriod(InvestmentParameter parameter, double period)
+        {
+            var rate = Math.Pow(1 + parameter.YearlyInterestRate / 100, 1.0f / period) - 1;
+            return rate * parameter.Rate / 100;
         }
     }
 }

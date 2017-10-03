@@ -13,10 +13,10 @@ namespace Easynvest.SimulatorCalc.Tests.Domain
             get
             {
                 yield return new TestCaseData(new InvestmentParameter(1000, 10, 368, 252), new InvestmentResult(new InvestmentParameter(1000, 10, 368, 252), 1100m, 17.50m));
-                yield return new TestCaseData(new InvestmentParameter(1000, 10, 369, 252, 110), new InvestmentResult(new InvestmentParameter(1000, 10, 369, 252, 110), 1110.53m, 19.34m));
+                yield return new TestCaseData(new InvestmentParameter(1000, 10, 369, 252, 110), new InvestmentResult(new InvestmentParameter(1000, 10, 369, 252, 110), 1110.53m, 17.50m));
                 yield return new TestCaseData(new InvestmentParameter(1000, 10, 369, 252, 110, true), new InvestmentResult(new InvestmentParameter(1000, 10, 369, 252, 110, true), 1110.53m, 0));
-                yield return new TestCaseData(new InvestmentParameter(5000, 12, 130, 90, 115), new InvestmentResult(new InvestmentParameter(5000, 12, 130, 90, 115), 5238.22m, 53.60m));
-                yield return new TestCaseData(new InvestmentParameter(9000, 9.5, 730, 505, 115.50), new InvestmentResult(new InvestmentParameter(9000, 9.5, 730, 505, 115.50), 11103.69m, 315.55m));
+                yield return new TestCaseData(new InvestmentParameter(5000, 12, 130, 90, 115), new InvestmentResult(new InvestmentParameter(5000, 12, 130, 90, 115), 5238.22m, 22.5m));
+                yield return new TestCaseData(new InvestmentParameter(9000, 9.5, 730, 505, 115.50), new InvestmentResult(new InvestmentParameter(9000, 9.5, 730, 505, 115.50), 11103.69m, 15m));
             }
         }
 

@@ -41,8 +41,6 @@ namespace Easynvest.SimulatorCalc.Repository
 
             try
             {
-                var uriString = $"{_config.Value.EttjAPI}/{type}/{businessDays}";
-
                 var result = client.GetStringAsync(new Uri($"{_config.Value.EttjAPI}/{type}/{businessDays}"));
                 var msg = await result;
                 ratesResult = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<Rate>>(msg);

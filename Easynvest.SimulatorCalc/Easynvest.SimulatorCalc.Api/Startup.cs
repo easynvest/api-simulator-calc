@@ -57,7 +57,7 @@ namespace Easynvest.SimulatorCalc.Api
             app.UseMvc();
             app.Run(async context =>
             {
-                await context.Response.WriteAsync("Calculator is online");
+                await context.Response.WriteAsync("Calculator is online - Version 1.1");
             });
         }
     }
