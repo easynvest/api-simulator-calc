@@ -1,5 +1,6 @@
 ﻿using Easynvest.SimulatorCalc.Domain.Calendar;
 using System;
+using System.Globalization;
 
 namespace Easynvest.SimulatorCalc.Domain.Investment
 {
@@ -10,7 +11,7 @@ namespace Easynvest.SimulatorCalc.Domain.Investment
         private CalendarDaysCountResult CalendarCount {
             set
             {
-                MaturityDate = value.ToDate.Date;
+                MaturityDate = DateTime.ParseExact(value.ToDate, "yyyyMMdd", CultureInfo.InvariantCulture).Date;
             }
         }
 
