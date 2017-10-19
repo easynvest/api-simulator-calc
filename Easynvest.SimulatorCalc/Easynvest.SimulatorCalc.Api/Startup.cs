@@ -53,7 +53,11 @@ namespace Easynvest.SimulatorCalc.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(builder => builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials());
             app.UseMvc();
             app.Run(async context =>
             {
