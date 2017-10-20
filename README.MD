@@ -6,26 +6,18 @@ Existem vários simuladores de Renda Fixa Pré e Pós fixados no mercado. Mas a 
 
 ````
 docker image build easynvest/simuladorapi .
-docker container run -p 80:80 -d easynvest/simuladorapi
+docker container run -p 5000:5000 -d easynvest/simuladorapi
 ````
 
 * * *
 
 ## Consumindo o serviço de cálculo
-A API que calcula o os valores futuros se encontram em [outro projeto Open Source, aqui](https://github.com/easynvest/api-simulator-calc). Abaixo segue algumas informações sobre como utilizamos esse serviço no nosso simulador.
+A API que calcula o os valores futuros se encontram em [outro projeto Open Source, aqui](https://github.com/easynvest/api-simulator-calc). Abaixo segue algumas informações sobre como utilizar o simulador.
 
- - **URL**: https://localhost/calculator/simulate
- - **Method**: POST
+ - **URL**: http://localhost/calculator/simulate?investedAmount=1000&index=CDI&rate=100&isTaxFree=false&maturityDate=2017-12-25
+ - **Method**: GET
  - **URL Params**:
-    ```javascript
-    {
-        investedAmount: 32323.0                 // Valor a investir em reais
-        index: "CDI"                            // Índice, por enquanto só CDI disponível
-        rate: 123                               // Percentual do papel
-        isTaxFree: false                        // Isento de IR, por enquanto só falso
-        maturityDate: "2023-03-03"              // Data do vencimento, no formato ano-mes-dia
-    }
-    ```
+
  - **Response**
     ```javascript
     {
